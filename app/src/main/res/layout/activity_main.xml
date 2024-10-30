@@ -8,13 +8,25 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView_clicks"
+        android:id="@+id/textview_level_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/textview_clicks"
-        android:textSize="40sp"
+        android:text="@string/textview_level_label"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView_clicks_counter"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_level_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview_level_value"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_clicks_counter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

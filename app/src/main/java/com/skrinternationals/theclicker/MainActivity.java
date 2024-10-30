@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     ConstraintLayout main_layout;
     TextView textview_clicks_counter;
+    TextView textview_level_value;
     Counter counter;
 
     int curr_colour;
@@ -25,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     int COLOUR_INCREMENT_SIZE_GREEN;
     int COLOUR_INCREMENT_SIZE_BLUE;
     int LEVEL;
-    final double ALPHA_VALUE = 10.0;
-    final double DIFFICULTY_LEVEL_VALUE = 2;    //GOLDEN_RATIO, 2, EULER_CONSTANT, PI etc...
+    final double ALPHA_VALUE = 10.0;            //10, 15, 20
+    final double DIFFICULTY_LEVEL_VALUE = 1.61;    //GOLDEN_RATIO, 2, EULER_CONSTANT, PI etc...
 
 
     @Override
@@ -34,33 +35,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("!!!LOGS: ", "------------------------------");
         initialize();
 
-//        TODO: some research on optimal value
-        for(int a=0;a<10;a++) {
-            int next_val_to_nearest_tensG = ((int) Math.ceil((Math.pow(a, 1.61)) * ALPHA_VALUE) / 10) * 10;
-            int next_val_to_nearest_tens2 = ((int) Math.ceil((Math.pow(a, 2)) * ALPHA_VALUE) / 10) * 10; // PREFERRED
-            int next_val_to_nearest_tens2p5 = ((int) Math.ceil((Math.pow(a, 2.5)) * ALPHA_VALUE) / 10) * 10;
-//            int next_val_to_nearest_tens50 = ((int) Math.ceil((Math.pow(a, DIFFICULTY_LEVEL_VALUE)) * ALPHA_VALUE) / 10) * 10;
-            Log.d("!!!LOGS: ", "a: "+a+"\tnextG: "+next_val_to_nearest_tensG+"\tnext2: "+next_val_to_nearest_tens2+"\tnext2p5: "+next_val_to_nearest_tens2p5);
-        }
-
-//        main_layout.setOnClickListener(view -> {
-//            if(counter.isGoalReach()) {
-//                updateNextValues();
-//                setColorIncrementSize();
-//            }
-//            increaseCounter();
-//            updateBGColor();
-//            Log.d("!!!LOGS: ", "LEVEL: "+LEVEL+"\tgoal: "+counter.getGoal()+"\tcurr_col: "+curr_colour+"\tto_col: "+to_colour);
-//        });
+        main_layout.setOnClickListener(view -> {
+            if(counter.isGoalReach()) {
+                updateNextValues();
+                setColorIncrementSize();
+            }
+            increaseCounter();
+            updateBGColor();
+        });
     }
 
     void initialize() {
         main_layout = findViewById(R.id.main_layout);
         textview_clicks_counter = findViewById(R.id.textView_clicks_counter);
-        textview_clicks_counter = findViewById(R.id.textView_clicks_counter);
+        textview_level_value = findViewById(R.id.textview_level_value);
 
         counter = new Counter();
         to_colour = Color.rgb(255, 255, 255);
@@ -72,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         int next_val = (int) Math.ceil((Math.pow(LEVEL, DIFFICULTY_LEVEL_VALUE)) * ALPHA_VALUE);
         int next_val_to_nearest_tens = (next_val / 10) * 10;
         counter.setGoal(next_val_to_nearest_tens);
-        Log.d("!!!Logs:", "Counter: [from to] "+counter.getValue()+" "+counter.getGoal());
+        textview_level_value.setText(String.valueOf(LEVEL));
     }
 
     private void increaseCounter() {
