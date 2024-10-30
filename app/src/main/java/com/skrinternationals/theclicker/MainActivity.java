@@ -2,7 +2,6 @@ package com.skrinternationals.theclicker;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     ConstraintLayout main_layout;
     TextView textview_clicks_counter;
     TextView textview_level_value;
+    TextView textview_level_label;
     Counter counter;
 
     int curr_colour;
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         main_layout = findViewById(R.id.main_layout);
         textview_clicks_counter = findViewById(R.id.textView_clicks_counter);
         textview_level_value = findViewById(R.id.textview_level_value);
+        textview_level_label = findViewById(R.id.textview_level_label);
 
         counter = new Counter();
         to_colour = Color.rgb(255, 255, 255);
@@ -89,5 +90,14 @@ public class MainActivity extends AppCompatActivity {
 
         curr_colour = Color.rgb(red, green, blue);
         main_layout.setBackgroundColor(curr_colour);
+
+        textview_level_label.setTextColor(getContrastingColor(curr_colour));
+        textview_level_value.setTextColor(getContrastingColor(curr_colour));
+        textview_clicks_counter.setTextColor(getContrastingColor(curr_colour));
+    }
+
+    private int getContrastingColor(int color) {
+        double luminance = (0.299 * Color.red(color) + 0.587 * Color.green(color) + 0.114 * Color.blue(color));
+        return (luminance > 186) ? Color.BLACK : Color.WHITE;
     }
 }
