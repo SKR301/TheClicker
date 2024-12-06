@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     int COLOUR_INCREMENT_SIZE_GREEN;
     int COLOUR_INCREMENT_SIZE_BLUE;
     int LEVEL;
-    final double ALPHA_VALUE = 10.0;            //10, 15, 20
-    final double DIFFICULTY_LEVEL_VALUE = 1.61;    //GOLDEN_RATIO, 2, EULER_CONSTANT, PI etc...
+    final double ALPHA_VALUE = 10.0;                //10, 15, 20
+    final double DIFFICULTY_LEVEL_VALUE = 1.61;     //GOLDEN_RATIO, 2, EULER_CONSTANT, PI etc...
 
 
     @Override
