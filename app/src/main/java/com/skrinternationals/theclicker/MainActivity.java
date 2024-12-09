@@ -2,6 +2,7 @@ package com.skrinternationals.theclicker;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     int curr_colour;
     int to_colour;
 
+    long prev_click = -1;
+    long next_click = -1;
+
     final int COLOUR_MIN_VALUE = 0;
     final int COLOUR_MAX_VALUE = 255;
     int COLOUR_INCREMENT_SIZE_RED;
@@ -29,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     final double ALPHA_VALUE = 10.0;                //10, 15, 20
     final double DIFFICULTY_LEVEL_VALUE = 1.61;     //GOLDEN_RATIO, 2, EULER_CONSTANT, PI etc...
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,17 @@ public class MainActivity extends AppCompatActivity {
         initialize();
 
         main_layout.setOnClickListener(view -> {
+            long current_time = System.currentTimeMillis();
+
+            if (prev_click < 0) {
+                prev_click = current_time;
+            } else {
+                next_click = current_time;
+
+                Log.d("!!!TIME DIFF:", "Time: " + (next_click-prev_click));
+                prev_click = next_click;
+            }
+
             if(counter.isGoalReach()) {
                 updateNextValues();
                 setColorIncrementSize();
