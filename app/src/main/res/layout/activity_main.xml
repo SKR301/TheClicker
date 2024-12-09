@@ -40,4 +40,94 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView_quickest_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/textview_fastest_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_quickest_timing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/textview_time_default"
+        app:layout_constraintStart_toEndOf="@+id/textView_quickest_label"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_quickest_ms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/textview_ms_label"
+        app:layout_constraintStart_toEndOf="@+id/textView_quickest_timing"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_average_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/textview_average_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_quickest_label" />
+
+    <TextView
+        android:id="@+id/textView_average_timing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/textview_time_default"
+        app:layout_constraintStart_toEndOf="@+id/textView_average_label"
+        app:layout_constraintTop_toBottomOf="@+id/textView_quickest_timing" />
+
+    <TextView
+        android:id="@+id/textView_average_ms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/textview_ms_label"
+        app:layout_constraintStart_toEndOf="@+id/textView_average_timing"
+        app:layout_constraintTop_toBottomOf="@+id/textView_quickest_label" />
+
+    <TextView
+        android:id="@+id/textView_slowest_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/textview_slowest_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_average_label" />
+
+    <TextView
+        android:id="@+id/textView_slowest_timing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/textview_time_default"
+        app:layout_constraintStart_toEndOf="@+id/textView_average_label"
+        app:layout_constraintTop_toBottomOf="@+id/textView_average_timing" />
+
+    <TextView
+        android:id="@+id/textView_slowest_ms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/textview_ms_label"
+        app:layout_constraintStart_toEndOf="@+id/textView_slowest_timing"
+        app:layout_constraintTop_toBottomOf="@+id/textView_average_ms" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,6 @@ package com.skrinternationals.theclicker;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +15,15 @@ public class MainActivity extends AppCompatActivity {
     TextView textview_clicks_counter;
     TextView textview_level_value;
     TextView textview_level_label;
+    TextView textView_quickest_label;
+    TextView textView_quickest_timing;
+    TextView textView_quickest_ms;
+    TextView textView_average_label;
+    TextView textView_average_timing;
+    TextView textView_average_ms;
+    TextView textView_slowest_label;
+    TextView textView_slowest_timing;
+    TextView textView_slowest_ms;
     Counter counter;
 
     int curr_colour;
@@ -23,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     long prev_click = -1;
     long next_click = -1;
+    long timing = 0;
+    long sum_timing = 0;
 
     final int COLOUR_MIN_VALUE = 0;
     final int COLOUR_MAX_VALUE = 255;
@@ -48,7 +58,27 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 next_click = current_time;
 
-                Log.d("!!!TIME DIFF:", "Time: " + (next_click-prev_click));
+                timing = (next_click - prev_click);
+                sum_timing += timing;
+
+                if (textView_quickest_timing.getText().toString().equals(getString(R.string.textview_time_default))) {
+                    textView_quickest_timing.setText(String.valueOf(timing));
+                } else {
+                    if (Integer.parseInt(textView_quickest_timing.getText().toString()) > timing) {
+                        textView_quickest_timing.setText(String.valueOf(timing));
+                    }
+                }
+
+                if (textView_slowest_timing.getText().toString().equals(getString(R.string.textview_time_default))) {
+                    textView_slowest_timing.setText(String.valueOf(timing));
+                } else {
+                    if (Integer.parseInt(textView_slowest_timing.getText().toString()) < timing) {
+                        textView_slowest_timing.setText(String.valueOf(timing));
+                    }
+                }
+
+                textView_average_timing.setText(String.valueOf(sum_timing / counter.getValue()));
+
                 prev_click = next_click;
             }
 
@@ -66,6 +96,15 @@ public class MainActivity extends AppCompatActivity {
         textview_clicks_counter = findViewById(R.id.textView_clicks_counter);
         textview_level_value = findViewById(R.id.textview_level_value);
         textview_level_label = findViewById(R.id.textview_level_label);
+        textView_quickest_label = findViewById(R.id.textView_quickest_label);
+        textView_quickest_timing = findViewById(R.id.textView_quickest_timing);
+        textView_quickest_ms = findViewById(R.id.textView_quickest_ms);
+        textView_average_label = findViewById(R.id.textView_average_label);
+        textView_average_timing = findViewById(R.id.textView_average_timing);
+        textView_average_ms = findViewById(R.id.textView_average_ms);
+        textView_slowest_label = findViewById(R.id.textView_slowest_label);
+        textView_slowest_timing = findViewById(R.id.textView_slowest_timing);
+        textView_slowest_ms = findViewById(R.id.textView_slowest_ms);
 
         counter = new Counter();
         to_colour = Color.rgb(255, 255, 255);
@@ -108,6 +147,16 @@ public class MainActivity extends AppCompatActivity {
         textview_level_label.setTextColor(getContrastingColor(curr_colour));
         textview_level_value.setTextColor(getContrastingColor(curr_colour));
         textview_clicks_counter.setTextColor(getContrastingColor(curr_colour));
+
+        textView_quickest_label.setTextColor(getContrastingColor(curr_colour));
+        textView_quickest_timing.setTextColor(getContrastingColor(curr_colour));
+        textView_quickest_ms.setTextColor(getContrastingColor(curr_colour));
+        textView_average_label.setTextColor(getContrastingColor(curr_colour));
+        textView_average_timing.setTextColor(getContrastingColor(curr_colour));
+        textView_average_ms.setTextColor(getContrastingColor(curr_colour));
+        textView_slowest_label.setTextColor(getContrastingColor(curr_colour));
+        textView_slowest_timing.setTextColor(getContrastingColor(curr_colour));
+        textView_slowest_ms.setTextColor(getContrastingColor(curr_colour));
     }
 
     private int getContrastingColor(int color) {

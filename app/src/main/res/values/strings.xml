@@ -3,4 +3,9 @@
     <string name="textview_level_label">Level: </string>
     <string name="textview_level_value">0</string>
     <string name="textview_clicks_count">0</string>
+    <string name="textview_fastest_label">Fastest:</string>
+    <string name="textview_average_label">Average:</string>
+    <string name="textview_slowest_label">Slowest:</string>
+    <string name="textview_time_default">-</string>
+    <string name="textview_ms_label">ms</string>
 </resources>
