@@ -8,4 +8,10 @@
     <string name="textview_slowest_label">Slowest:</string>
     <string name="textview_time_default">-</string>
     <string name="textview_ms_label">ms</string>
+    <string name="button_go">GO</string>
+    <string name="textview_10_label">LEVEL 10:</string>
+    <string name="textview_100_label">LEVEL 100:</string>
+    <string name="textview_1000_label">LEVEL 1000:</string>
+    <string name="textview_10000_label">LEVEL 10000:</string>
+    <string name="textview_scoreboard">SCOREBOARD</string>
 </resources>
