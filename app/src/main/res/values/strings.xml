@@ -13,5 +13,7 @@
     <string name="textview_100_label">LEVEL 100:</string>
     <string name="textview_1000_label">LEVEL 1000:</string>
     <string name="textview_10000_label">LEVEL 10000:</string>
-    <string name="textview_scoreboard">SCOREBOARD</string>
+    <string name="textview_scoreboard">--SCOREBOARD--</string>
+
+
 </resources>

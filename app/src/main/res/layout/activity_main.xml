@@ -22,6 +22,7 @@
         android:id="@+id/textview_level_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/irish_grover"
         android:text="@string/textview_level_value"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView_clicks_counter"
@@ -33,6 +34,7 @@
         android:id="@+id/textView_clicks_counter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/irish_grover"
         android:text="@string/textview_clicks_count"
         android:textSize="120sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/irish_grover"
         android:text="@string/textview_time_default"
         app:layout_constraintStart_toEndOf="@+id/textView_quickest_label"
         app:layout_constraintTop_toTopOf="parent" />
@@ -86,6 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/irish_grover"
         android:text="@string/textview_time_default"
         app:layout_constraintStart_toEndOf="@+id/textView_average_label"
         app:layout_constraintTop_toBottomOf="@+id/textView_quickest_timing" />
@@ -116,6 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/irish_grover"
         android:text="@string/textview_time_default"
         app:layout_constraintStart_toEndOf="@+id/textView_average_label"
         app:layout_constraintTop_toBottomOf="@+id/textView_average_timing" />
